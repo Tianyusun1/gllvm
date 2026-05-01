@@ -1,0 +1,7 @@
+{
+  "input": "dag_data.json",
+  "outdir": "out3",
+  "seeds": [1, 7, 42],
+  "budgets_ms": [100, 300, 800],
+  "algos": ["baseline", "ga", "aco"]
+}
