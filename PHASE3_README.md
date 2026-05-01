@@ -17,3 +17,16 @@ Outputs in `out3/` by default:
 - `summary.csv` (raw runs from phase2)
 - `aggregate.csv` (grouped stats)
 - `report.md` (analysis summary)
+
+
+## Plotting
+
+```bash
+python3 plot_results.py --aggregate out3/aggregate.csv --outdir out3/figures
+```
+
+If matplotlib is missing:
+
+```bash
+pip install matplotlib
+```
