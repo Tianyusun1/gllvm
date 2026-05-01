@@ -13,3 +13,10 @@ Phase-2 delivers a pluggable scheduling framework with a strategy interface and 
 python3 phase2_scheduler.py --input dag_data.json --algo compare --seed 7 --budget-ms 300 --out-prefix out2/demo
 ./run_phase2_experiments.sh dag_data.json out2
 ```
+
+
+## PowerShell (Windows)
+
+```powershell
+./run_phase2_experiments.ps1 -Input dag_data.json -OutDir out2/p2_batch
+```

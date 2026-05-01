@@ -25,3 +25,10 @@ python3 phase1_scheduler.py --input dag_data.json --algo ga --seed 7 --budget-ms
 GA-specific fields:
 - `ga_score`
 - `ga_generations_used`
+
+
+## PowerShell (Windows)
+
+```powershell
+./run_phase1_experiments.ps1 -Input dag_data.json -OutDir out/p1_batch
+```
