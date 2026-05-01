@@ -1,0 +1,918 @@
+[
+    {
+        "id": 0,
+        "raw_text": "16B\t  %0:int64regs = LD_i64_avar 0, 4, 1, 0, 64, &myadd_param_0 :: (dereferenceable invariant load (s64) from `ptr addrspace(101) null`, addrspace 101)",
+        "type": "LD",
+        "latency": 100,
+        "dest": "0",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 1,
+        "raw_text": "32B\t  %1:float32regs = LD_f32_areg_64 0, 0, 1, 2, 32, %0:int64regs :: (load (s32) from %ir.0, !tbaa !5)",
+        "type": "LD",
+        "latency": 100,
+        "dest": "1",
+        "srcs": [
+            "0"
+        ],
+        "predecessors": [
+            0
+        ]
+    },
+    {
+        "id": 2,
+        "raw_text": "48B\t  %2:int64regs = LD_i64_avar 0, 4, 1, 0, 64, &myadd_param_1 :: (dereferenceable invariant load (s64) from `ptr addrspace(101) null`, addrspace 101)",
+        "type": "LD",
+        "latency": 100,
+        "dest": "2",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 3,
+        "raw_text": "64B\t  %3:float32regs = LD_f32_areg_64 0, 0, 1, 2, 32, %2:int64regs :: (load (s32) from %ir.1, !tbaa !5)",
+        "type": "LD",
+        "latency": 100,
+        "dest": "3",
+        "srcs": [
+            "2"
+        ],
+        "predecessors": [
+            2
+        ]
+    },
+    {
+        "id": 4,
+        "raw_text": "80B\t  %4:float32regs = FADD_rnf32rr %1:float32regs, %3:float32regs",
+        "type": "FADD",
+        "latency": 4,
+        "dest": "4",
+        "srcs": [
+            "3",
+            "1"
+        ],
+        "predecessors": [
+            3,
+            1
+        ]
+    },
+    {
+        "id": 5,
+        "raw_text": "96B\t  ST_f32_areg_64 %4:float32regs, 0, 0, 1, 2, 32, %0:int64regs :: (store (s32) into %ir.0, !tbaa !5)",
+        "type": "ST",
+        "latency": 100,
+        "dest": null,
+        "srcs": [
+            "0",
+            "4"
+        ],
+        "predecessors": [
+            0,
+            4
+        ]
+    },
+    {
+        "id": 6,
+        "raw_text": "112B\t  Return",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 7,
+        "raw_text": "16B\t  %17:int64regs = MOV_ADDR64 @str",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "17",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 8,
+        "raw_text": "32B\t  %18:int64regs = cvta_global_yes_64 %17:int64regs",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "18",
+        "srcs": [
+            "17"
+        ],
+        "predecessors": [
+            7
+        ]
+    },
+    {
+        "id": 9,
+        "raw_text": "48B\t  Callseq_Start 0, 0",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 10,
+        "raw_text": "112B\t  CallUniPrintCallRetInst1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 11,
+        "raw_text": "128B\t  CallVoidInst @puts",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 12,
+        "raw_text": "144B\t  CallArgBeginInst",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 13,
+        "raw_text": "160B\t  LastCallArgParam 0",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 14,
+        "raw_text": "176B\t  CallArgEndInst1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 15,
+        "raw_text": "192B\t  dead %19:int32regs = LoadParamMemI32 0",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "19",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 16,
+        "raw_text": "208B\t  Callseq_End 0, 1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 17,
+        "raw_text": "224B\t  %63:float32regs = FMOV32ri float 0.000000e+00",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "63",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 18,
+        "raw_text": "240B\t  %62:int64regs = IMOV64ri 1",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "62",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 19,
+        "raw_text": "256B\t  %61:int64regs = IMOV64ri 1907",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "61",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 20,
+        "raw_text": "272B\t  %60:float32regs = FMOV32ri float 5.813000e+03",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "60",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 21,
+        "raw_text": "288B\t  %59:int64regs = IMOV64ri 40000000",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "59",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 22,
+        "raw_text": "480B\t  %21:int32regs = CVT_u32_u64 %61:int64regs, 0",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "21",
+        "srcs": [
+            "61"
+        ],
+        "predecessors": [
+            19
+        ]
+    },
+    {
+        "id": 23,
+        "raw_text": "496B\t  %22:int32regs = MULTi32ri %21:int32regs, 27611",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "22",
+        "srcs": [
+            "21"
+        ],
+        "predecessors": [
+            22
+        ]
+    },
+    {
+        "id": 24,
+        "raw_text": "512B\t  %23:int32regs = MULTHUi32ri %22:int32regs, 1892065235",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "23",
+        "srcs": [
+            "22"
+        ],
+        "predecessors": [
+            23
+        ]
+    },
+    {
+        "id": 25,
+        "raw_text": "528B\t  %24:int32regs = SRLi32ri %23:int32regs, 15",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "24",
+        "srcs": [
+            "23"
+        ],
+        "predecessors": [
+            24
+        ]
+    },
+    {
+        "id": 26,
+        "raw_text": "544B\t  %25:int32regs = MULTi32ri %24:int32regs, 74383",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "25",
+        "srcs": [
+            "24"
+        ],
+        "predecessors": [
+            25
+        ]
+    },
+    {
+        "id": 27,
+        "raw_text": "560B\t  %26:int32regs = SUBi32rr %22:int32regs, %25:int32regs",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "26",
+        "srcs": [
+            "25",
+            "22"
+        ],
+        "predecessors": [
+            26,
+            23
+        ]
+    },
+    {
+        "id": 28,
+        "raw_text": "576B\t  %61:int64regs = CVT_u64_u32 %26:int32regs, 0",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "61",
+        "srcs": [
+            "26"
+        ],
+        "predecessors": [
+            27
+        ]
+    },
+    {
+        "id": 29,
+        "raw_text": "592B\t  %27:float32regs = CVT_f32_s64 %61:int64regs, 5",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "27",
+        "srcs": [
+            "61"
+        ],
+        "predecessors": [
+            28
+        ]
+    },
+    {
+        "id": 30,
+        "raw_text": "608B\t  %6:float32regs = FDIV32ri_prec %27:float32regs, float 7.438300e+04",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "6",
+        "srcs": [
+            "27"
+        ],
+        "predecessors": [
+            29
+        ]
+    },
+    {
+        "id": 31,
+        "raw_text": "624B\t  %28:float32regs = FMUL_rnf32ri %60:float32regs, float 1.307000e+03",
+        "type": "FMUL",
+        "latency": 4,
+        "dest": "28",
+        "srcs": [
+            "60"
+        ],
+        "predecessors": [
+            20
+        ]
+    },
+    {
+        "id": 32,
+        "raw_text": "640B\t  %29:float32regs = FDIV32ri_prec %28:float32regs, float 5.471000e+03",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "29",
+        "srcs": [
+            "28"
+        ],
+        "predecessors": [
+            31
+        ]
+    },
+    {
+        "id": 33,
+        "raw_text": "656B\t  %30:int64regs = CVT_s64_f32 %29:float32regs, 2",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "30",
+        "srcs": [
+            "29"
+        ],
+        "predecessors": [
+            32
+        ]
+    },
+    {
+        "id": 34,
+        "raw_text": "672B\t  %31:float32regs = CVT_f32_s64 %30:int64regs, 5",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "31",
+        "srcs": [
+            "30"
+        ],
+        "predecessors": [
+            33
+        ]
+    },
+    {
+        "id": 35,
+        "raw_text": "688B\t  %60:float32regs = FMA32rir %31:float32regs, float -5.471000e+03, %28:float32regs",
+        "type": "FMA",
+        "latency": 6,
+        "dest": "60",
+        "srcs": [
+            "28",
+            "31"
+        ],
+        "predecessors": [
+            31,
+            34
+        ]
+    },
+    {
+        "id": 36,
+        "raw_text": "704B\t  %8:float32regs = FDIV32ri_prec %60:float32regs, float 5.471000e+03",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "8",
+        "srcs": [
+            "60"
+        ],
+        "predecessors": [
+            35
+        ]
+    },
+    {
+        "id": 37,
+        "raw_text": "720B\t  %32:float32regs = FMUL_rnf32rr %8:float32regs, %8:float32regs",
+        "type": "FMUL",
+        "latency": 4,
+        "dest": "32",
+        "srcs": [
+            "8"
+        ],
+        "predecessors": [
+            36
+        ]
+    },
+    {
+        "id": 38,
+        "raw_text": "736B\t  %33:float32regs = FMA32rrr %6:float32regs, %6:float32regs, %32:float32regs",
+        "type": "FMA",
+        "latency": 6,
+        "dest": "33",
+        "srcs": [
+            "32",
+            "6"
+        ],
+        "predecessors": [
+            37,
+            30
+        ]
+    },
+    {
+        "id": 39,
+        "raw_text": "752B\t  %63:float32regs = FADD_rnf32rr %63:float32regs, %33:float32regs",
+        "type": "FADD",
+        "latency": 4,
+        "dest": "63",
+        "srcs": [
+            "63",
+            "33"
+        ],
+        "predecessors": [
+            17,
+            38
+        ]
+    },
+    {
+        "id": 40,
+        "raw_text": "768B\t  %34:int1regs = SETP_f32ri %33:float32regs, float 1.000000e+00, 3",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "34",
+        "srcs": [
+            "33"
+        ],
+        "predecessors": [
+            38
+        ]
+    },
+    {
+        "id": 41,
+        "raw_text": "784B\t  %35:int64regs = SELP_u64ii 1, 0, %34:int1regs",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "35",
+        "srcs": [
+            "34"
+        ],
+        "predecessors": [
+            40
+        ]
+    },
+    {
+        "id": 42,
+        "raw_text": "800B\t  %62:int64regs = nuw nsw ADDi64rr %62:int64regs, %35:int64regs",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "62",
+        "srcs": [
+            "35",
+            "62"
+        ],
+        "predecessors": [
+            41,
+            18
+        ]
+    },
+    {
+        "id": 43,
+        "raw_text": "816B\t  %59:int64regs = nsw ADDi64ri %59:int64regs, -1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "59",
+        "srcs": [
+            "59"
+        ],
+        "predecessors": [
+            21
+        ]
+    },
+    {
+        "id": 44,
+        "raw_text": "832B\t  %36:int1regs = SETP_s64ri %59:int64regs, 0, 1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "36",
+        "srcs": [
+            "59"
+        ],
+        "predecessors": [
+            43
+        ]
+    },
+    {
+        "id": 45,
+        "raw_text": "976B\t  %37:float64regs = CVT_f64_f32 %6:float32regs, 0",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "37",
+        "srcs": [
+            "6"
+        ],
+        "predecessors": [
+            30
+        ]
+    },
+    {
+        "id": 46,
+        "raw_text": "992B\t  %38:float64regs = CVT_f64_f32 %8:float32regs, 0",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "38",
+        "srcs": [
+            "8"
+        ],
+        "predecessors": [
+            36
+        ]
+    },
+    {
+        "id": 47,
+        "raw_text": "1008B\t  %39:int32regs = CVT_u32_u64 %62:int64regs, 0",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "39",
+        "srcs": [
+            "62"
+        ],
+        "predecessors": [
+            42
+        ]
+    },
+    {
+        "id": 48,
+        "raw_text": "1024B\t  %40:int64regs = MOV_ADDR64 @\"_$_str_$_1\"",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "40",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 49,
+        "raw_text": "1040B\t  %41:int64regs = cvta_global_yes_64 %40:int64regs",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "41",
+        "srcs": [
+            "40"
+        ],
+        "predecessors": [
+            48
+        ]
+    },
+    {
+        "id": 50,
+        "raw_text": "1056B\t  %42:int32regs = IMOVB32ri 40000001",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "42",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 51,
+        "raw_text": "1072B\t  Callseq_Start 1, 0",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 52,
+        "raw_text": "1216B\t  CallUniPrintCallRetInst1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 53,
+        "raw_text": "1232B\t  CallVoidInst @printf",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 54,
+        "raw_text": "1248B\t  CallArgBeginInst",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 55,
+        "raw_text": "1264B\t  CallArgParam 0",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 56,
+        "raw_text": "1280B\t  LastCallArgParam 1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 57,
+        "raw_text": "1296B\t  CallArgEndInst1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 58,
+        "raw_text": "1312B\t  dead %43:int32regs = LoadParamMemI32 0",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "43",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 59,
+        "raw_text": "1328B\t  Callseq_End 1, 2",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 60,
+        "raw_text": "1344B\t  %45:float32regs = CVT_f32_s64 %62:int64regs, 5",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "45",
+        "srcs": [
+            "62"
+        ],
+        "predecessors": [
+            42
+        ]
+    },
+    {
+        "id": 61,
+        "raw_text": "1360B\t  %46:float64regs = CVT_f64_f32 %45:float32regs, 0",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "46",
+        "srcs": [
+            "45"
+        ],
+        "predecessors": [
+            60
+        ]
+    },
+    {
+        "id": 62,
+        "raw_text": "1376B\t  %47:float64regs = FMUL_rnf64ri %46:float64regs, double 4.000000e+00",
+        "type": "FMUL",
+        "latency": 4,
+        "dest": "47",
+        "srcs": [
+            "46"
+        ],
+        "predecessors": [
+            61
+        ]
+    },
+    {
+        "id": 63,
+        "raw_text": "1392B\t  %48:float64regs = FDIV64ri %47:float64regs, double 4.000000e+07",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "48",
+        "srcs": [
+            "47"
+        ],
+        "predecessors": [
+            62
+        ]
+    },
+    {
+        "id": 64,
+        "raw_text": "1408B\t  %49:float32regs = CVT_f32_f64 %48:float64regs, 5",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "49",
+        "srcs": [
+            "48"
+        ],
+        "predecessors": [
+            63
+        ]
+    },
+    {
+        "id": 65,
+        "raw_text": "1424B\t  %50:float64regs = CVT_f64_f32 %49:float32regs, 0",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "50",
+        "srcs": [
+            "49"
+        ],
+        "predecessors": [
+            64
+        ]
+    },
+    {
+        "id": 66,
+        "raw_text": "1440B\t  %51:float64regs = CVT_f64_f32 %63:float32regs, 0",
+        "type": "CVT",
+        "latency": 2,
+        "dest": "51",
+        "srcs": [
+            "63"
+        ],
+        "predecessors": [
+            39
+        ]
+    },
+    {
+        "id": 67,
+        "raw_text": "1456B\t  %52:float64regs = FMUL_rnf64ri %51:float64regs, double 0.000000e+00",
+        "type": "FMUL",
+        "latency": 4,
+        "dest": "52",
+        "srcs": [
+            "51"
+        ],
+        "predecessors": [
+            66
+        ]
+    },
+    {
+        "id": 68,
+        "raw_text": "1472B\t  %53:int64regs = MOV_ADDR64 @\"_$_str_$_2\"",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "53",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 69,
+        "raw_text": "1488B\t  %54:int64regs = cvta_global_yes_64 %53:int64regs",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "54",
+        "srcs": [
+            "53"
+        ],
+        "predecessors": [
+            68
+        ]
+    },
+    {
+        "id": 70,
+        "raw_text": "1504B\t  %55:int32regs = IMOVB32ri 40000000",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "55",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 71,
+        "raw_text": "1520B\t  Callseq_Start 2, 0",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 72,
+        "raw_text": "1648B\t  CallUniPrintCallRetInst1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 73,
+        "raw_text": "1664B\t  CallVoidInst @printf",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 74,
+        "raw_text": "1680B\t  CallArgBeginInst",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 75,
+        "raw_text": "1696B\t  CallArgParam 0",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 76,
+        "raw_text": "1712B\t  LastCallArgParam 1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 77,
+        "raw_text": "1728B\t  CallArgEndInst1",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 78,
+        "raw_text": "1744B\t  dead %56:int32regs = LoadParamMemI32 0",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": "56",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 79,
+        "raw_text": "1760B\t  Callseq_End 2, 3",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 80,
+        "raw_text": "1776B\t  %58:int32regs = IMOVB32ri 0",
+        "type": "MOV",
+        "latency": 1,
+        "dest": "58",
+        "srcs": [],
+        "predecessors": []
+    },
+    {
+        "id": 81,
+        "raw_text": "1808B\t  Return",
+        "type": "DEFAULT",
+        "latency": 2,
+        "dest": null,
+        "srcs": [],
+        "predecessors": []
+    }
+]
