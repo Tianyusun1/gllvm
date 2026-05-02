@@ -100,6 +100,7 @@ def write_report(path: Path, agg: list[dict]):
         lines.append(
             f"- {r['algo']} @ {r['budget_ms']}ms (n={r['n']}): "
             f"CP={r['critical_path_est_mean']}±{r['critical_path_est_stdev']}, "
+            f"MS={r['makespan_est_mean']}±{r['makespan_est_stdev']}, "
             f"RegP={r['reg_pressure_proxy_mean']}±{r['reg_pressure_proxy_stdev']}, "
             f"Conflict={r['resource_conflict_proxy_mean']}±{r['resource_conflict_proxy_stdev']}, "
             f"Compile={r['compile_time_ms_mean']}±{r['compile_time_ms_stdev']} ms"
