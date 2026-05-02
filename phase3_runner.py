@@ -74,7 +74,7 @@ def aggregate(rows: list[dict]) -> list[dict]:
         groups.setdefault(key, []).append(r)
 
     out = []
-    metrics = ["critical_path_est", "reg_pressure_proxy", "resource_conflict_proxy", "compile_time_ms"]
+    metrics = ["critical_path_est", "makespan_est", "reg_pressure_proxy", "resource_conflict_proxy", "compile_time_ms"]
     for (algo, budget), items in sorted(groups.items()):
         row = {"algo": algo, "budget_ms": budget, "n": len(items)}
         for m in metrics:

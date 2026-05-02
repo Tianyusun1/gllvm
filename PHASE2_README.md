@@ -20,3 +20,7 @@ python3 phase2_scheduler.py --input dag_data.json --algo compare --seed 7 --budg
 ```powershell
 ./run_phase2_experiments.ps1 -Input dag_data.json -OutDir out2/p2_batch
 ```
+
+
+### New option
+- `--issue-width` controls per-cycle issue slots in makespan simulation (default: 2).
