@@ -30,3 +30,18 @@ If matplotlib is missing:
 ```bash
 pip install matplotlib
 ```
+
+## Mega sweep (full stress test)
+
+Run exhaustive grid search and persist all results:
+
+```bash
+python3 mega_sweep.py --input dag_data.json --outdir out_mega
+```
+
+Outputs:
+- `out_mega/summary.csv`
+- `out_mega/aggregate_by_setting.csv`
+- `out_mega/aggregate_by_algo.csv`
+- `out_mega/failures.csv`
+- `out_mega/meta.json`
